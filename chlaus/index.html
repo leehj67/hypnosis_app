@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최면 애니메이션 웹앱</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="initial-screen" class="screen">
+        <div id="select-target-text">최면 대상 선정</div>
+    </div>
+    
+    <div id="upload-screen" class="screen hidden">
+        <input type="file" id="file-input" accept="image/*" capture="camera">
+    </div>
+    
+    <div id="hypnosis-screen" class="screen hidden">
+        <div class="heart-container">
+            <img src="white_heart.svg" class="heart-animation" id="heart1" alt="Heart 1">
+            <img src="light_pink_heart.svg" class="heart-animation" id="heart2" alt="Heart 2">
+            <img src="dark_pink_heart.svg" class="heart-animation" id="heart3" alt="Heart 3">
+        </div>
+        <div id="target-container">
+            <img id="target-image" src="" alt="Target Image">
+            <div id="text">최면중</div>
+            <div class="gauge-container">
+                <div class="gauge-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="hypno-music" src="hypo.mp3"></audio> <!-- 최면 중 음악 -->
+    <audio id="effect-sound1" src="aaaaa.mp3"></audio> <!-- 효과음 1 -->
+    <audio id="effect-sound2" src="Ang.mp3"></audio> <!-- 효과음 2 -->
+    <script src="script.js"></script>
+</body>
+</html>
