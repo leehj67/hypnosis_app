@@ -42,9 +42,33 @@ function startGauge() {
         hypnoMusic.pause();
         hypnoMusic.currentTime = 0;
         playNextEffectSound();
-
-        text.addEventListener('click', resetPage, { once: true });
+        
+        createControlButtons(); // 최면 완료 시 버튼 생성 함수 호출
     }, 20000);
+}
+
+function createControlButtons() {
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.id = 'buttons-container';
+    buttonsContainer.style.display = 'flex';
+    buttonsContainer.style.gap = '20px';
+    buttonsContainer.style.marginTop = '20px';
+
+    const resetButton = document.createElement('button');
+    resetButton.textContent = '최면 대상 재선정';
+    resetButton.addEventListener('click', resetPage);
+
+    const controlButton = document.createElement('button');
+    controlButton.textContent = '대상 감도 조절';
+    controlButton.addEventListener('click', () => {
+        window.location.href = 'control.html';
+    });
+
+    buttonsContainer.appendChild(resetButton);
+    buttonsContainer.appendChild(controlButton);
+
+    // 최면 완료 메시지 아래에 버튼 컨테이너 추가
+    text.parentNode.insertBefore(buttonsContainer, text.nextSibling);
 }
 
 function resetPage() {
@@ -67,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const reader = new FileReader();
             reader.onload = (e) => {
                 targetImage.src = e.target.result;
+                localStorage.setItem('selectedImage', e.target.result); // 이미지 저장
                 uploadScreen.classList.add('hidden');
                 hypnosisScreen.classList.remove('hidden');
                 startGauge();

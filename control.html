@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감도 설정</title>
+    <link rel="stylesheet" href="controlcss.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="heart-container">
+            <img src="white_heart.svg" class="heart-animation" id="heart1" alt="Heart 1">
+            <img src="light_pink_heart.svg" class="heart-animation" id="heart2" alt="Heart 2">
+            <img src="dark_pink_heart.svg" class="heart-animation" id="heart3" alt="Heart 3">
+        </div>
+        
+        <div class="target-container">
+            <img id="control-target-image" src="your_image_path_here.jpg" alt="Target Image">
+        </div>
+        
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider-group" id="affection-group">
+                    <label for="affection-slider">호감도:</label>
+                    <input type="range" id="affection-slider" min="0" max="100" value="50">
+                </div>
+                <div class="slider-group" id="sensitivity-group">
+                    <label for="sensitivity-slider">민감도:</label>
+                    <input type="range" id="sensitivity-slider" min="0" max="100" value="50">
+                </div>
+                <div class="slider-group" id="sexual-group">
+                    <label for="sexual-slider">성감도:</label>
+                    <input type="range" id="sexual-slider" min="0" max="100" value="50">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 백그라운드 음악 재생 -->
+    <audio id="background-music" src="shika.mp3" loop></audio>
+
+    <audio id="effect-sound2" src="Ang.mp3"></audio> <!-- 효과음 -->
+    <script src="controlScript.js"></script>
+</body>
+</html>
